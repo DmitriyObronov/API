@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteBase /
+
+RewriteRule api/v1/login /api/v1/users/auth.php [L]
+#RewriteRule api/v1/comp/(.+) /api/v1/computers/list.php$1 [QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f     #Если файл не существует
+RewriteCond %{REQUEST_FILENAME} !-d    #И если папка не существует
+RewriteRule ^.*$ index.php [QSA,L]
